@@ -1,6 +1,6 @@
 ﻿using ForumFree.NET;
 using NillForum.WrapUp.API.Models.Database;
-using NillForum.WrapUp.API.Models.Forum;
+using NillForum.WrapUp.API.Models.DTOs;
 using NillForum.WrapUp.API.Repositories;
 
 namespace NillForum.WrapUp.API.Services
