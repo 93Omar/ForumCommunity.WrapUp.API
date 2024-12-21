@@ -2,6 +2,7 @@ using ForumFree.NET;
 using Microsoft.Extensions.Options;
 using NillForum.WrapUp.API.Configurations;
 using NillForum.WrapUp.API.DelegatingHandlers;
+using NillForum.WrapUp.API.Extensions;
 
 namespace NillForum.WrapUp.API
 {
@@ -20,16 +21,7 @@ namespace NillForum.WrapUp.API
 
             services.Configure<ForumConfiguration>(builder.Configuration.GetSection(nameof(ForumConfiguration)));
 
-            services.AddHttpClient<ForumFreeClient>((sp, client) =>
-            {
-                ForumConfiguration forumConfiguration = sp.GetRequiredService<IOptions<ForumConfiguration>>()?.Value ?? throw new ArgumentNullException(nameof(ForumConfiguration));
-                client.BaseAddress = forumConfiguration.ForumUri;
-            })
-            .AddHttpMessageHandler((sp) =>
-            {
-                ForumConfiguration forumConfiguration = sp.GetRequiredService<IOptions<ForumConfiguration>>()?.Value ?? throw new ArgumentNullException(nameof(ForumConfiguration));
-                return new FixedCookieHandler(forumConfiguration.Cookie);
-            });
+            services.AddForumClients();
 
             var app = builder.Build();
 
