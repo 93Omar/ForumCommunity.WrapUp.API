@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace NillForum.WrapUp.API.Models.DTOs
+namespace ForumCommunity.WrapUp.API.Models.DTOs
 {
     public class ForumPost
     {

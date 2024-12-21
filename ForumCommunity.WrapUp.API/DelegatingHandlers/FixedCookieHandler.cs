@@ -1,4 +1,4 @@
-﻿namespace NillForum.WrapUp.API.DelegatingHandlers
+﻿namespace ForumCommunity.WrapUp.API.DelegatingHandlers
 {
     internal class FixedCookieHandler : DelegatingHandler
     {

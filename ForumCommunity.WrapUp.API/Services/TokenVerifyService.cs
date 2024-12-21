@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.WebUtilities;
 
-namespace NillForum.WrapUp.API.Services
+namespace ForumCommunity.WrapUp.API.Services
 {
     public class TokenVerifyService
     {

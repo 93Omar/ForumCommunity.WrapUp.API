@@ -1,4 +1,4 @@
-﻿namespace NillForum.WrapUp.API.Configurations
+﻿namespace ForumCommunity.WrapUp.API.Configurations
 {
     public class ForumConfiguration
     {

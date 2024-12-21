@@ -1,8 +1,8 @@
+using ForumCommunity.WrapUp.API.Repositories;
+using ForumCommunity.WrapUp.API.Services;
 using Microsoft.AspNetCore.Mvc;
-using NillForum.WrapUp.API.Repositories;
-using NillForum.WrapUp.API.Services;
 
-namespace NillForum.WrapUp.API.Controllers
+namespace ForumCommunity.WrapUp.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

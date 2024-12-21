@@ -1,6 +1,6 @@
-﻿using NillForum.WrapUp.API.Models.Database;
+﻿using ForumCommunity.WrapUp.API.Models.Database;
 
-namespace NillForum.WrapUp.API.Repositories
+namespace ForumCommunity.WrapUp.API.Repositories
 {
     public interface IPostRepository
     {

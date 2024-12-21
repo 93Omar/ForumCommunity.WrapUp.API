@@ -1,4 +1,4 @@
-﻿namespace NillForum.WrapUp.API.Models.Database
+﻿namespace ForumCommunity.WrapUp.API.Models.Database
 {
     public class ImportPostData
     {

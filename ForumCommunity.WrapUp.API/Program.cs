@@ -1,10 +1,10 @@
+using ForumCommunity.WrapUp.API.Configurations;
+using ForumCommunity.WrapUp.API.Extensions;
 using ForumFree.NET;
 using Microsoft.Extensions.Options;
-using NillForum.WrapUp.API.Configurations;
 using NillForum.WrapUp.API.DelegatingHandlers;
-using NillForum.WrapUp.API.Extensions;
 
-namespace NillForum.WrapUp.API
+namespace ForumCommunity.WrapUp.API
 {
     public class Program
     {

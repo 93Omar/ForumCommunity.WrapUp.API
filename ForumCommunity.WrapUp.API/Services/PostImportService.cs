@@ -1,9 +1,9 @@
-﻿using ForumFree.NET;
-using NillForum.WrapUp.API.Models.Database;
-using NillForum.WrapUp.API.Models.DTOs;
-using NillForum.WrapUp.API.Repositories;
+﻿using ForumCommunity.WrapUp.API.Models.Database;
+using ForumCommunity.WrapUp.API.Models.DTOs;
+using ForumCommunity.WrapUp.API.Repositories;
+using ForumFree.NET;
 
-namespace NillForum.WrapUp.API.Services
+namespace ForumCommunity.WrapUp.API.Services
 {
     public class PostImportService
     {
