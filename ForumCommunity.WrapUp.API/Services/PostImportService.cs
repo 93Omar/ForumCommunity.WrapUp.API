@@ -20,7 +20,7 @@ namespace ForumCommunity.WrapUp.API.Services
 
         public async Task ImportAsync(int userId)
         {
-            HttpResponseMessage responseMessages = await _forumFreeClient.GetPostsByUserId(userId, 1);
+            HttpResponseMessage responseMessages = await _forumFreeClient.GetPostsByUserIdAsync(userId, 1);
             PaginatedPostResponse? postResponse = await responseMessages.Content.ReadFromJsonAsync<PaginatedPostResponse>();
 
             if (postResponse is null)
@@ -36,7 +36,7 @@ namespace ForumCommunity.WrapUp.API.Services
 
             for (int i = 1; i <= postResponse!.TotalPages; i++)
             {
-                responseMessages = await _forumFreeClient.GetPostsByUserId(userId, i);
+                responseMessages = await _forumFreeClient.GetPostsByUserIdAsync(userId, i);
                 postResponse = await responseMessages.Content.ReadFromJsonAsync<PaginatedPostResponse>();
 
                 foreach (ForumPost forumPost in postResponse!.Posts)

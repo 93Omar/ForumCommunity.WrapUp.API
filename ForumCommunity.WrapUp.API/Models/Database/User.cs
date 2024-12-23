@@ -3,7 +3,7 @@
     public class User
     {
         public int Id { get; set; }
-        public int IdForum { get; set; }
+        public int ForumId { get; set; }
         public string? Nickname { get; set; }
         public string? LoginToken { get; set; }
     }

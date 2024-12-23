@@ -1,8 +1,6 @@
 using ForumCommunity.WrapUp.API.Configurations;
 using ForumCommunity.WrapUp.API.Extensions;
-using ForumFree.NET;
-using Microsoft.Extensions.Options;
-using NillForum.WrapUp.API.DelegatingHandlers;
+using System.Text;
 
 namespace ForumCommunity.WrapUp.API
 {
@@ -19,9 +17,10 @@ namespace ForumCommunity.WrapUp.API
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
 
-            services.Configure<ForumConfiguration>(builder.Configuration.GetSection(nameof(ForumConfiguration)));
+            services.AddForumClients(builder.Configuration);
+            services.AddLoginTokenGenerator(builder.Configuration);
 
-            services.AddForumClients();
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
             var app = builder.Build();
 

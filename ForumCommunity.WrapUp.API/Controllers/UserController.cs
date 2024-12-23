@@ -1,5 +1,6 @@
+using ForumCommunity.WrapUp.API.Models;
+using ForumCommunity.WrapUp.API.Models.Database;
 using ForumCommunity.WrapUp.API.Repositories;
-using ForumCommunity.WrapUp.API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ForumCommunity.WrapUp.API.Controllers
@@ -10,20 +11,27 @@ namespace ForumCommunity.WrapUp.API.Controllers
     {
         private readonly ILogger<UserController> _logger;
         private readonly IUserRepository _userRepository;
-        private readonly TokenVerifyService _tokenVerifyService;
 
-        public UserController(ILogger<UserController> logger, IUserRepository userRepository, TokenVerifyService tokenVerifyService)
+        public UserController(ILogger<UserController> logger, IUserRepository userRepository)
         {
             _logger = logger;
             _userRepository = userRepository;
-            _tokenVerifyService = tokenVerifyService;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> VerifyToken(string userId, string token)
+        [HttpPost("Registration")]
+        public async Task<IActionResult> Registration(RegistrationRequest request)
         {
-            bool tokenIsValid = await _tokenVerifyService.VerifyToken(userId, token);
-            return Ok(tokenIsValid);
+            ArgumentNullException.ThrowIfNull(request, nameof(request));
+            ArgumentNullException.ThrowIfNull(request.Nickname, nameof(request.Nickname));
+
+            User user = new()
+            {
+                Nickname = request.Nickname,
+                Id = request.UserId,
+                ForumId = request.ForumId
+            };
+            int userId = await _userRepository.CreateAsync(user);
+            return Ok(userId);
         }
     }
 }
